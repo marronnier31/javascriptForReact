@@ -21,6 +21,9 @@ console.log(typeof aa);
 // 누군가가 값을 주었다. (어떤 값을 줄지 아무도 모른다.)
 // 동적 타입이기 때문에 모든 타입을 다 받아버린다.
 // 절대 받으면 안 되는 것이다. null undefined 문제가 생김. 
+aa = aa ?? 10; //if문 대체
+console.log(aa);
+console.log(typeof aa);
 aa = 20;
 aa = aa ?? 10;
 console.log(aa);
