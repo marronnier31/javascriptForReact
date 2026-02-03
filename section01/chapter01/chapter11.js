@@ -48,3 +48,4 @@ let a = getArea5(10,30);
 let b = getArea5(12,15);
 let ab = getArea5(a,b);
 console.log(ab);
+

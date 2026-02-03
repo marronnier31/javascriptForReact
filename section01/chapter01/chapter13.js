@@ -15,7 +15,7 @@ let funcB = index => console.log(index*10);
 let funcC = index =>console.log(index*10+5);
 
 //let callback = funcA;
-repeat(5,(index1,index2) => console.log(index1 + index2));
-repeat(5,index => console.log(index*10));
-repeat(5,index =>console.log(index*10+5));
+repeat(5,(i1,i2) => console.log(i1 + i2));
+//repeat(5,index => console.log(index*10));
+//repeat(5,index =>console.log(index*10+5));
 //callback(10);
