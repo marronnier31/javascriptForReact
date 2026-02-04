@@ -22,4 +22,6 @@ console.log(`arrC[4]=${arrC[4]}`);
 console.log(`arrC[5]=${arrC[5]}`);
 console.log(`arrC[6]=${arrC[6]}`);
 console.log(`arrC[7]=${arrC[7]}`);
+array.push('10');
 console.log(arrC);
+console.log(array);
