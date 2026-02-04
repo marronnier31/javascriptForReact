@@ -3,7 +3,7 @@ const animal = {
   //멤버변수
   type : '고양이',
   age : 2
-}
+};
 animal['age'] = 10;
 animal.color = '노란색';
 delete animal.age;
@@ -21,7 +21,7 @@ const animal2 = {
     console.log('안녕')
   },
   sayhi3 : () => console.log('hihi')
-}
+};
 animal2.sayhi3();
 animal2.sayhi(5);
 console.log(animal2);
