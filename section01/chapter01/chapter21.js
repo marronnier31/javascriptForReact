@@ -11,7 +11,7 @@ console.log('*************************************');
 for (let data of array) {
   console.log(data);
 }
-//4. for in문
+//4. for in문 : index값을 가져온다.
 for (let index in array) {
   console.log(`index = ${index} ${array[index]}`)  
 }
