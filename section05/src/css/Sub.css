@@ -1,0 +1,12 @@
+#login{
+  background-color: blanchedalmond;
+  font-weight: 700;
+  color: rgb(1, 69, 69);
+  border-bottom: 2px solid black;
+}
+.logout{
+  background-color: rgb(243, 166, 52);
+  font-weight: 700;
+  color: rgb(1, 45, 9);
+  border-bottom: 2px solid black;
+}
