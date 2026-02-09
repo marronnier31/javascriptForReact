@@ -1,0 +1,21 @@
+body {
+  padding: 40px;
+  margin: 40px;
+  border: 2px solid black;
+}
+.App {
+  width: 400;
+  margin: 0 auto;
+  border:  2px dotted red;
+  text-align: center;
+  padding: 10px;
+}
+.controller{
+  background-color: rgb(167, 166, 166);
+  padding: 10px 0px;
+}
+.controller button {
+  width: 50px;
+  height: 30px;
+  font-weight: 700;
+}
