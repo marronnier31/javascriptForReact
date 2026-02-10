@@ -1,34 +1,35 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
-import Viewer from './components/Viewer';
-import Controller from './components/Controller';
+import Header from './components/Header'
+import Editor from './components/Editor'
+import List from './components/List'
+
 
 function App() {
- const [count, setCount] = useState(0);
-
- const onClickButton = (num1,num2,op)=>{
-  switch (op) {
-    case '+':
-      setCount(num1 + num2);
-      break;
-    case '-':
-      setCount(num1 - num2);
-      break;
-    case '*':
-      setCount(num1 * num2);
-      break;
-    case '/':
-      setCount(num1 / num2);
-      break;
-  }
- }
+ const [stus, setStus] = useState([]);
+ const idRef = useRef(0);
+ const onCreate = (name, kor, eng, math) => { 
+    const newStu = { 
+      id: idRef.current++, 
+      name: name, 
+      kor: kor,
+      eng : eng,
+      math: math,
+      sum : parseInt(kor)+parseInt(eng)+parseInt(math),
+      avg : (parseInt(kor)+parseInt(eng)+parseInt(math))/3, 
+      date: new Date().getTime(), 
+    }; 
+ 
+    setStus([newStu, ...stus]); 
+  };
+  const onUpdate = (id, kor, eng, math)=>{
+    setStus(stus.map((stu) => stu.id === id ? { ...stu, kor: kor, eng: eng, math: math, sum: parseInt(kor)+parseInt(eng)+parseInt(math), avg: (parseInt(kor)+parseInt(eng)+parseInt(math))/3, date: new Date().getTime()} : stu, ))
+  };
   return (
     <>
-     <div className='App'>
-      <h1>계산기</h1>
-     </div>
-    <Viewer count = {count}/>
-    <Controller onClickButton = {onClickButton}/>
+    <Header/>
+    <Editor onCreate = {onCreate}/>
+    <List stus = {stus} onUpdate={onUpdate} onDelete={id=>setStus(stus.filter((stu) => stu.id !== id))}/>
     </>
   )
 }
