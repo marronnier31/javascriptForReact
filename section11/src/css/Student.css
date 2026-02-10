@@ -1,0 +1,34 @@
+.StudentTitle, .Student, .Update { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  padding: 10px 0; 
+  border-bottom: 1px solid rgb(240, 240, 240); 
+  text-align: center; 
+}
+
+
+.id { width: 40px; }
+.name { flex: 2; } 
+.kor, .eng, .math, .sum, .avg { flex: 1; }
+.date { flex: 2; }
+
+.Update input {
+  width: 40px;
+  margin-left: 20px;
+  padding-left: 40px;
+}
+
+.Update .korInput{ margin-left: 15px;}
+
+.btn_area { 
+  width: 110px; 
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.StudentTitle {
+  background-color: #f8f9fa; 
+  font-weight: bold;
+}
