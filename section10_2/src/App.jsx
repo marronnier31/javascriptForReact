@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Editor from './components/Editor'
 import List from './components/List'
 import './css/App.css'
-import { useState, useRef, useReducer } from 'react'
+import { useState, useRef, useReducer, useCallback } from 'react'
 import Exam from './components/Exam'
 
 
@@ -47,6 +47,7 @@ function reducer(todos, action) {
 }
  
 function App() { 
+  const [count, setCount] = useState(10);
   const [todos, dispatch] = useReducer(reducer, mockData);
   //const [todos, setTodos] = useState(mockData);
   const idRef = useRef(3);
@@ -69,7 +70,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <Header/>
+        <Header count={count}/>
         <Exam/>
         <Editor onCreate = {content=>dispatch({type:"onCreate", data:{ 
       id: idRef.current++, 
@@ -77,8 +78,8 @@ function App() {
       content: content, 
       date: new Date().getTime(), 
     }})}/>
-        <List todos = {todos} onUpdate = {id =>dispatch({type:"onUpdate", data:id})}
-          onDelete = {id => dispatch({type:"onDelete", data: id})}/>
+        <List todos = {todos} onUpdate = {useCallback(id =>dispatch({type:"onUpdate", data:id}),[])}
+          onDelete = {useCallback(id => dispatch({type:"onDelete", data: id}),[])}/>
       </div>
     </>
   )
