@@ -23,7 +23,7 @@ function App() {
     setStus([newStu, ...stus]); 
   };
   const onUpdate = (id, kor, eng, math)=>{
-    setStus(stus.map((stu) => stu.id === id ? { ...stu, kor: kor, eng: eng, math: math, sum: parseInt(kor)+parseInt(eng)+parseInt(math), avg: (parseInt(kor)+parseInt(eng)+parseInt(math))/3, date: new Date().getTime()} : stu, ))
+    setStus(stus.map((stu) => stu.id === id ? { ...stu, kor: kor, eng: eng, math: math, sum: parseInt(kor)+parseInt(eng)+parseInt(math), avg: (parseInt(kor)+parseInt(eng)+parseInt(math))/3, date: new Date().getTime()} : stu ))
   };
   return (
     <>
