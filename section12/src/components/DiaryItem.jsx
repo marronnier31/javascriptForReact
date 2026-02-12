@@ -3,7 +3,7 @@ import {getEmotionImage} from "../util/getEmotionImage"
 import Button from "./Button";
 import './DiaryItem.css'
 
-const DiaryItem = ({id, emotionId, createdDate, content})=>{
+const  DiaryItem = ({id, emotionId, createdDate, content})=>{
   const nav = useNavigate();
   return <>
     <div className="DiaryItem">
