@@ -1,0 +1,59 @@
+/* 공통 컬럼 너비 설정 (헤더와 아이템 공통) */
+.no { flex: 0 0 50px; text-align: center; }      /* 번호: 50px 고정 */
+.writer { flex: 0 0 100px; text-align: center; } /* 작성자: 100px 고정 */
+.title { flex: 1; padding-left: 20px; }          /* 제목: 남은 공간 모두 차지 */
+.regDate { flex: 0 0 120px; text-align: center; } /* 작성일: 120px 고정 */
+
+/* --- List 컴포넌트 스타일 --- */
+.List {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.menu_bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* 헤더 영역 (.detail) */
+.detail {
+  display: flex;
+  padding: 12px 0;
+  border-top: 2px solid #333;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  font-weight: bold;
+  font-size: 15px;
+  color: #444;
+}
+
+/* --- BoardItem 컴포넌트 스타일 --- */
+.BoardItem {
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  align-items: center;
+  font-size: 14px;
+}
+
+.BoardItem:hover {
+  background-color: #fbfbfb;
+  transform: scale(1.005); /* 살짝 커지는 효과 */
+}
+
+.BoardItem .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 제목이 너무 길면 ... 처리 */
+  color: #222;
+  font-weight: 500;
+}
+
+.BoardItem .regDate {
+  color: #888;
+  font-size: 13px;
+}

@@ -35,7 +35,7 @@ function reducer(state, action) {
     case "CREATE":
       return [action.data, ...state];
     case "UPDATE":
-      return state.map(item=>item.id === action.id ? action.data : item);
+      return state.map(item=> item.id === action.data.id ? action.data : item);
     case "DELETE":
       return state.filter(item=> item.id !== action.id);
     default:

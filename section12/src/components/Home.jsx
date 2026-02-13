@@ -7,7 +7,7 @@ import { useContext, useState } from "react";
 const Home = () =>{
   //공유props가져오기
   const state = useContext(DiaryStateContext);
-  const [pivotDate, setPivotDate] = useState(new Date())
+  const [pivotDate, setPivotDate] = useState(new Date)
   //이전달, 다음달이벤트처리
   const onDecreaseMonth = e=>{
     setPivotDate(new Date(pivotDate.getFullYear(),pivotDate.getMonth()-1))
