@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
-import New from './components/new'
+import New from './components/New'
 import Detail from './components/Detail'
 import Edit from './components/Edit'
 
