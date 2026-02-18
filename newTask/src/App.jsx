@@ -2,10 +2,10 @@ import { Route, Routes, useSearchParams } from 'react-router-dom'
 import './App.css'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
-import New from './components/new'
+import New from './components/New'
 import Detail from './components/Detail'
 import Edit from './components/Edit'
-import { createContext, useReducer, useRef, useState } from 'react'
+import { createContext, useReducer, useRef } from 'react'
 
 const mockData = [{
   no: 1,
@@ -27,7 +27,7 @@ const reducer = (state, action) => {
     case 'CREATE':
       return [action.data, ...state];
     case 'UPDATE':
-      return state.map(item => item.no === action.no ? action.data : state);
+      return state.map(item => item.no === action.data.no ? action.data : item);
     case 'DELETE':
       return state.filter(item => item.no !== action.no);
     default:
