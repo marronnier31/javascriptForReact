@@ -1,0 +1,72 @@
+/* 1. 전체 컨테이너: 너비 확장 */
+.Editor {
+  width: 100%;
+  max-width: 1000px; /* 게시판 헤더 너비에 맞춰 조절 */
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 2. 제목과 작성자 영역 (줄 나눔 및 정렬) */
+.Editor .title,
+.Editor .writer {
+  display: flex;
+  align-items: center;
+}
+
+/* 3. 라벨 너비 고정 (제목과 작성자의 시작점과 길이를 똑같이 맞춤) */
+.Editor label {
+  width:70px; 
+  font-weight: bold;
+  font-size: 15px;
+  color: #333;
+}
+
+/* 4. 입력창 (연한 밑줄 및 배경 제거) */
+.Editor input[type="text"] {
+  flex: 1; /* 제목과 작성자 input 너비를 동일하게 꽉 채움 */
+  border: none;
+  border-bottom: 1px solid #ababab; /* 연한 밑줄 */
+  padding: 10px 0;
+  background: transparent;
+  outline: none;
+  border-radius: 0;
+}
+
+/* 5. 내용 영역 마진 및 상자 설정 */
+.Editor .content {
+  align-items: flex-start; /* 내용은 위쪽 정렬 */
+  flex-direction: column;  /* 내용 라벨과 상자를 세로로 배치하고 싶다면 유지 */
+  gap: 10px;
+}
+
+.Editor textarea {
+  width: 100%;          /* 텍스트 상자는 전체 너비 */
+  min-height: 400px;
+  padding: 15px;
+  margin-top: 10px;     /* 요청하신 textarea 상단 마진 */
+  border: 1px solid #e1e1e1;
+  background: transparent;
+  outline: none;
+  border-radius: 0;
+  resize: none;
+  box-sizing: border-box;
+}
+
+/* 6. 버튼 영역 (완전 오른쪽 정렬) */
+.button_area {
+  display: flex;
+  justify-content: flex-end; /* 버튼을 오른쪽 끝으로 */
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.button_area button {
+  padding: 12px 40px;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
