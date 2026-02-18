@@ -10,15 +10,15 @@ import { createContext, useReducer, useRef } from 'react'
 const mockData = [{
   no: 1,
   title: '냉방문의',
-  writer: 'aaa',
-  content: 'rrr',
+  writer: '전우림',
+  content: '에어컨이 이상합니다.',
   regDate: new Date(2026,1,1).getTime()
 },
 {
   no: 2,
   title: '추가수업',
-  writer: 'bbb',
-  content: 'kkk',
+  writer: '전세림',
+  content: '추가수업을 신청합니다.',
   regDate: new Date(2026,1,2).getTime()
 }];
 
