@@ -33,7 +33,7 @@ export default function Header() {
                     <Link to={"/todo/list"}>LIST</Link>
                   </li>
                   <li>
-                    <Link to={"/todo/read/20"}>READ</Link>
+                    <Link to={"/todo/read/30"}>READ</Link>
                   </li>
                   <li>
                     <Link to={"/todo/modify"}>MODIFY</Link>
