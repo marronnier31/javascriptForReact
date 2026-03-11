@@ -11,6 +11,7 @@ const initState = {
 };
 const ReadComponent = ({ tno, moveToList, moveToModify }) => {
   const [todo, setTodo] = useState(initState); //아직 todo는 사용하지 않음
+
   //마운트기능(시작할때, tno값이 바뀔때)
   useEffect(() => {
     getOne(tno).then((data) => {
