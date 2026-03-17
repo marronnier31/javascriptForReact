@@ -1,5 +1,4 @@
 /* ListComponent.css */
-
 .list-container {
   width: 100%;
   margin: 1rem auto;
@@ -32,6 +31,7 @@
 .text-center {
   text-align: center;
 }
+
 /* 이미지에 나온 빨간색 글씨 스타일 */
 .highlight-text {
   color: #ff4d4d;

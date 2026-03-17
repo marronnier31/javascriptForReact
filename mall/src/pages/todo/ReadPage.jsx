@@ -7,18 +7,17 @@ import {
 } from "react-router-dom";
 import { useCallback } from "react";
 import ReadComponent from "../../components/todo/ReadComponent";
-import useCustomMove from "../../hooks/useCustomMove";
+
 import "./ReadPage.css";
 
 const ReadPage = () => {
   const { tno } = useParams();
-  const navigate = useNavigate();
   const [queryParams] = useSearchParams();
-  const { moveToList, moveToModify } = useCustomMove();
+  const navigate = useNavigate();
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
-  //?page=1&size=10
+  //"?page=1&size=10"
   const queryStr = createSearchParams({ page, size }).toString();
 
   //동적페이지 이동
@@ -28,15 +27,12 @@ const ReadPage = () => {
       search: queryStr,
     });
   }, [navigate, tno, queryStr]);
+
   return (
     <>
       <div className="main-container">
         <Header />
-        <ReadComponent
-          tno={tno}
-          moveToList={moveToList}
-          moveToModify={moveToModify}
-        />
+        <ReadComponent tno={tno} />
       </div>
     </>
   );

@@ -8,12 +8,12 @@ const MainPage = () => {
       <div className="main-container">
         <Header />
         <div>
-          <Link to={"/todo/list?page=3&pageSize=30"}>List PAGE</Link> <br />
-          <a href="/about">ABOUT PAGE</a>
+          <Link to={"/todo/list?page=3&size=20"}>List PAGE</Link> <br />
+          <a href="/about">A ABOUT PAGE</a>
         </div>
         <main className="content-area">
           <div className="button-wrapper">
-            <button className="custom-btn-outline" type="button">
+            <button type="button" className="custom-btn-outline">
               Main Page
             </button>
           </div>

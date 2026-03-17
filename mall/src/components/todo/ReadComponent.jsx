@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getOne } from "../../api/todoApi";
+import useCustomMove from "../../hooks/useCustomMove";
 import "./ReadComponent.css";
 
 const initState = {
@@ -9,10 +10,10 @@ const initState = {
   dueDate: null,
   complete: false,
 };
-const ReadComponent = ({ tno, moveToList, moveToModify }) => {
+const ReadComponent = ({ tno }) => {
   const [todo, setTodo] = useState(initState); //아직 todo는 사용하지 않음
-
-  //마운트기능(시작할때, tno값이 바뀔때)
+  const { moveToList, moveToModify } = useCustomMove();
+  //마운트기능
   useEffect(() => {
     getOne(tno).then((data) => {
       console.log(data);
@@ -62,4 +63,5 @@ const MakeDiv = ({ title, value }) => (
     </div>
   </div>
 );
+
 export default ReadComponent;
