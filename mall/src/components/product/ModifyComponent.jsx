@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { API_SERVER_HOST } from "../../api/todoApi";
 import { getOne, putOne, deleteOne } from "../../api/productsApi";
 import FetchingModal from "../common/FetchingModal";
-import { API_SERVER_HOST } from "../../api/productsApi";
 import InfoModal from "../common/InfoModal";
 import useCustomMove from "../../hooks/useCustomMove";
 import "./ModifyComponent.css";
@@ -14,7 +14,6 @@ const initState = {
   delFlag: false,
   uploadFileNames: [],
 };
-
 const host = API_SERVER_HOST;
 
 const ModifyComponent = ({ pno }) => {
@@ -27,16 +26,13 @@ const ModifyComponent = ({ pno }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => setFetching(true), 0);
-    getOne(pno)
-      .then((data) => {
-        setProduct(data);
-        setFetching(false);
-      })
-      .catch(() => setFetching(false));
-    clearTimeout(timer);
+    getOne(pno).then((data) => {
+      setProduct(data);
+      setFetching(false);
+    });
+    return () => clearTimeout(timer);
   }, [pno]);
 
-  64;
   const handleChangeProduct = (e) => {
     setProduct({
       ...product,
@@ -53,22 +49,24 @@ const ModifyComponent = ({ pno }) => {
 
   const handleClickModify = () => {
     // 서버에 보낼 form 생성
-    const files = uploadRef.current.files;
-    /* 자료업로드 위치 */
     const formData = new FormData();
+    /* 자료업로드위치 */
+    const files = uploadRef.current.files;
     for (let i = 0; i < files.length; i++) {
       formData.append("files", files[i]);
     }
+
     //other data
     formData.append("pname", product.pname);
     formData.append("pdesc", product.pdesc);
     formData.append("price", product.price);
     formData.append("delFlag", product.delFlag);
 
-    // 이미지 파일명 추가
+    //이미지파일명 추가
     for (let i = 0; i < product.uploadFileNames.length; i++) {
       formData.append("uploadFileNames", product.uploadFileNames[i]);
     }
+
     setFetching(true);
     //수정 처리
     putOne(pno, formData).then((data) => {
@@ -77,11 +75,10 @@ const ModifyComponent = ({ pno }) => {
       setInfoModalOn(true);
     });
   };
-
   const handleClickDelete = () => {
     /* deleteOne 로직 구현 */
     setFetching(true);
-    deleteOne(pno).then(() => {
+    deleteOne(pno).then((data) => {
       setResult("Deleted");
       setFetching(false);
       setInfoModalOn(true);
@@ -107,17 +104,19 @@ const ModifyComponent = ({ pno }) => {
         content={`${result}`}
         callbackFn={closeModal}
       />
+
       <div className="modify-form">
         <div className="modify-form-group">
           <label className="modify-label">PNO</label>
           <input
             className="modify-control"
-            name="pbi"
+            name="pno"
             type="text"
             value={product.pno}
             readOnly="true"
           />
         </div>
+
         <div className="modify-form-group">
           <label className="modify-label">PNAME</label>
           <input
